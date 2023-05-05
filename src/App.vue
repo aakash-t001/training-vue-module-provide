@@ -1,47 +1,28 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import SlotComp from "./components/SlotComp.vue";
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <slot-comp/>
+    <slot-comp>
+      <template v-slot:title>This is Title</template>
+    </slot-comp>
+<!--    <slot-comp>-->
+<!--      <template v-slot:title="p">-->
+<!--        {{p.post_title}}-->
+<!--      </template>-->
+<!--    </slot-comp>-->
+<!--        <slot-comp title="title2"/>-->
+<!--    <slot-comp>-->
+<!--      <span style="color:red"> Click</span>-->
+<!--      <span style="color:blue">Here</span>-->
+<!--    </slot-comp>-->
+  </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<style>
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
